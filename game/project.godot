@@ -16,9 +16,5 @@ _global_script_class_icons={
 [application]
 
 config/name="New Game Project"
-run/main_scene="res://scenes/Interact.tscn"
+run/main_scene="res://Node2D.tscn"
 config/icon="res://icon.png"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
