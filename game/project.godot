@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="New Game Project"
+run/main_scene="res://Interact.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+InputBox="*res://InputBox.gd"
 
 [rendering]
 
