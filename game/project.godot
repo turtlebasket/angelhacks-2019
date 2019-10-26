@@ -16,8 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="New Game Project"
+run/main_scene="res://TitleScene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Background="*res://Background.gd"
+
+[display]
+
+window/size/width=160
+window/size/height=120
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
