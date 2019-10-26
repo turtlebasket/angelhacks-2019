@@ -1,4 +1,3 @@
-extends TextEdit
 var WEIGHT_CAP = 10
 var HP_CAP = 20
 var hp
