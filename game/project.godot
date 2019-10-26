@@ -16,5 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="New Game Project"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://scenes/title/TitleScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=160
+window/size/height=120
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )
