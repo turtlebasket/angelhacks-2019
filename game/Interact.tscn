@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="InputBox" type="LineEdit" parent="."]
+margin_left = 120.0
+margin_top = 531.0
+margin_right = 456.0
+margin_bottom = 555.0
+text = "asdfsadfasdfasdf"
+
+[node name="CmdHead" type="RichTextLabel" parent="."]
+margin_left = 98.0
+margin_top = 535.109
+margin_right = 133.0
+margin_bottom = 554.109
+text = "-->"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 100.834
+margin_top = 376.164
+margin_right = 454.834
+margin_bottom = 512.164
+scroll_following = true
+script = ExtResource( 1 )
+[connection signal="text_entered" from="InputBox" to="RichTextLabel" method="_on_InputBox_text_entered"]
