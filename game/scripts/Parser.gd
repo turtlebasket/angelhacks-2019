@@ -1,11 +1,10 @@
 extends Control
 
-func _ready():
-	parse("./example.potion")
-
-func parse(fileName):
-	var file = File.new()
-	file.open(fileName, file.READ)
+#func _ready():
+#	parse("./example.potion")
+#	pass
+	
+func parse(file):
 	var props ={}
 	# split each line on ":"
 	while !file.eof_reached():
@@ -23,4 +22,5 @@ func parse(fileName):
 			print(key + ": " + props[key])
 		else:
 			print("e: not implemented")
-	return null
+	return props
+	
