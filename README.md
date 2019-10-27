@@ -2,7 +2,7 @@ AngelHacks 2019
 ===
 Team: Michael Lisano, Derek Jiang, Trinity Chung, Paul Kang
 
-<img src="assets/demo.gif" alt="Demo"/>
+<img src="demo.gif" alt="Demo"/>
 
 # Goal
 The command line is often intimidating to many people. Our objective was to create a game to help people learn how to use the command line. In our game, you play as Angel, wandering the deep dungeons of the dark web, where evil malware can be encountered. The battle system would be a command line interface, in which scripts are run to attack the enemy.
