@@ -1,0 +1,2 @@
+HEALTH: 10
+ATTACK: 2

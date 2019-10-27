@@ -2,32 +2,9 @@
 
 [ext_resource path="res://assets/fonts/pixel-font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/InputBox.gd" type="Script" id=2]
+[ext_resource path="res://scripts/CmdOut.gd" type="Script" id=3]
 
 [sub_resource type="Theme" id=1]
-
-[sub_resource type="GDScript" id=2]
-script/source = "extends RichTextLabel
-var Player
-var Enemy
-
-func _ready():
-	Player = load(\"scripts/Enemy.gd\")
-	Enemy = load(\"scripts/Player.gd\")
-	var player = Player.new()
-	var enemy = Enemy.new()
-	player.setManager(self)
-	enemy.setManager(self)
-	pass
-	
-func display_text(new_text):
-	self.add_text(\"\\n\" + new_text)
-	pass
-
-
-# signal connection for to read from InputBox
-func _on_InputBox_text_entered(new_text):
-	self.add_text(\"\\n\" + new_text)
-	pass # Replace with function body."
 
 [node name="Node2D" type="Node2D"]
 
@@ -57,7 +34,7 @@ margin_bottom = 137.0
 theme = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 scroll_following = true
-script = SubResource( 2 )
+script = ExtResource( 3 )
 
 [node name="CmdHead" type="RichTextLabel" parent="ColorRect"]
 margin_left = 10.8247

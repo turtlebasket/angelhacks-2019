@@ -1,26 +1,17 @@
-extends Control
-
-#func _ready():
-#	parse("./example.potion")
-#	pass
-	
-func parse(file):
-	var props ={}
+extends Node 
+func _init():
+	pass
+static func parse(file):
+	var props = {}
 	# split each line on ":"
+	var line
+	var splitLine
 	while !file.eof_reached():
-		var line = file.get_line()
-		var splitLine
+		line = file.get_line()
 		if (line != ""):
 			splitLine = line.split(":", false, 2)
 			props[splitLine[0]]=splitLine[1]
+	print(props)
 	file.close();
-
-	for key in props.keys():
-		if key=="HEALTH":
-			print(key + ": " + props[key])
-		elif key=="DESC":
-			print(key + ": " + props[key])
-		else:
-			print("e: not implemented")
 	return props
 	

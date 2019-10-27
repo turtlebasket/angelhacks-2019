@@ -1,11 +1,17 @@
+extends Node
+
 var hp
 var attack
-var parser
-var manager
+#var parser
+var manager 
+const parser = preload("res://scripts/Parser.gd")
+
+func _init():
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	parser = load("./Parser.gd")
-	#var parser = Parser.new()
+	print(parser)
 	pass # Replace with function body.
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,10 +25,10 @@ func changeHp(num):
 	hp += num
 	pass
 	
-func load_from_file(file_name):
+func loadFromFile(file_name):
 	var file = File.new()
 	file.open(file_name, File.READ)
 	var temp = parser.parse(file)
-	attack = temp["ATTACK"]
-	hp = temp["HEALTH"]
+	attack = temp.get("ATTACK")
+	hp = temp.get("HEALTH")
 	pass
