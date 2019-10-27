@@ -18,3 +18,9 @@ _global_script_class_icons={
 config/name="New Game Project"
 run/main_scene="res://scenes/Interact.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Player="*res://scripts/Player.gd"
+Enemy="*res://scripts/Enemy.gd"
+Parser="*res://scripts/Parser.gd"

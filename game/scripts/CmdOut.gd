@@ -1,15 +1,18 @@
 extends RichTextLabel
 var player
 var enemy
+const Player = preload("res://scripts/Enemy.gd")
+const Enemy = preload("res://scripts/Player.gd")
 
 func _ready():
-	var Player = load("./Enemy.gd")
-	var Enemy = load("./Player.gd")
 	player = Player.new()
 	enemy = Enemy.new()
 	player.setManager(self)
 	enemy.setManager(self)
-	
+	player.loadFromFile("res://PlayerHome/me.txt")
+	print("loaded Player")
+	enemy.loadFromFile("res://assets/bug.txt")
+	print("loaded Player")
 	pass
 
 func changeEnemyHp(num):
