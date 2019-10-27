@@ -14,14 +14,20 @@ func _ready():
 	player.loadFromFile("res://PlayerHome/me.txt")
 	print("loaded Player")
 	enemy.loadFromFile("res://assets/bug.txt")
-	print("loaded Player")
+	print("loaded enemy")
 	pass
 
 func changeEnemyHp(num):
-	enemy.changeHp(num)
+	self.add_text("\n" + "You used Sword!")
+	self.add_text("\n" + "Sinister Slime took " + str(num) + " damage")
+	enemy.changeHp(-int(num))
 	pass
 	
 func changePlayerHp(num):
+	if (int(num) > 0):
+		self.add_text("\n" + "You healed " + str(num) + " health!")
+	elif (int(num) < 0):
+		self.add_text("\n" + "You were damaged " + str(num) + " health...")
 	player.changeHp(num)
 	pass
 	
@@ -39,6 +45,8 @@ func _on_InputBox_text_entered(cmd):
 		args.append(cmd[i])
 		i += 1
 		
+	self.add_text("\n>> " + cmd)
+		
 	if cmd_bin in ["ls", "cd", "pwd"]:
 		var out = []
 		OS.execute(cmd, args, true, out)
@@ -51,18 +59,32 @@ func _on_InputBox_text_entered(cmd):
 	
 	# custom commands
 	
-	elif cmd[0] == "use":
-		var object = cmd[1]
+	elif cmd_full[0] == "use":
+#		if (cmd_full[1] != "potion.txt" or cmd_full[1] != "sword.txt"):
+#			return
+			
+		print("use")
+		var object = cmd_full[1]
 		var objectFile = File.new()
-		var workingdir
+		var workingdir = []
 		OS.execute("pwd", [], true, workingdir)
-		objectFile.open(workingdir + object, File.READ)
+		print("boutta make fullphat")
+		var fullpath = str(workingdir[0]).trim_suffix("\n") + "/" + object
+		print(fullpath)
+		objectFile.open(fullpath, File.READ)
+		print("*******"+workingdir[0])
 		var objectProps = parser.parse(objectFile)
-		changeEnemyHp(-objectProps.get("ATTACK"))
-		changePlayerHp(objectProps.get("HEALTH"))
+		print(objectProps)
+		if objectProps.get("ATTACK") != null:
+			changeEnemyHp(objectProps.get("ATTACK"))
+		if objectProps.get("HEALTH") != null:
+			changePlayerHp(objectProps.get("HEALTH"))
 	self.add_text("\nPlayer HP: " + str(player.getHp()))
 	self.add_text("\nEnemy HP: " + str(enemy.getHp()))
-	enemy.takeTurn()
+	
+	enemy.takeTurn(self)
+	self.add_text("\n")
+	
 	pass
 		
 		

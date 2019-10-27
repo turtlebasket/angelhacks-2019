@@ -9,7 +9,7 @@ static func parse(file):
 	while !file.eof_reached():
 		line = file.get_line()
 		if (line != ""):
-			splitLine = line.split(":", false, 2)
+			splitLine = line.split(": ", false, 2)
 			props[splitLine[0]]=splitLine[1]
 	print(props)
 	file.close();

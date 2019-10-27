@@ -21,16 +21,20 @@ func setManager(man):
 	manager = man
 	pass
 	
-func changeHp(num):
+func changeHp(num: int):
 	hp += num
+	
+	if (hp <= 0):
+		get_tree().change_scene("res://scenes/Map.tscn")
+	
 	pass
 	
 func getAttack():
 	return attack
 	
-func takeTurn():
-	manager.changePlayerHp(attack)
-	pass
+func takeTurn(text):
+	text.add_text("\nSlime attacks!")
+	manager.changePlayerHp(-attack)
 
 func getHp():
 	return hp

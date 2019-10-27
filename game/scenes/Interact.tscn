@@ -44,5 +44,5 @@ margin_bottom = 176.703
 theme = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 text = ">"
-[connection signal="text_entered" from="ColorRect/InputBox" to="ColorRect/RichTextLabel" method="_on_InputBox_text_entered"]
 [connection signal="text_entered" from="ColorRect/InputBox" to="ColorRect/InputBox" method="_on_InputBox_text_entered"]
+[connection signal="text_entered" from="ColorRect/InputBox" to="ColorRect/RichTextLabel" method="_on_InputBox_text_entered"]

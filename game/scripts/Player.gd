@@ -37,7 +37,7 @@ func setManager(man):
 func changeHp(num):
 	num = int(num)
 	if num < 0:
-		num += armor
+		# num += armor
 		min (num, 0)
 	hp += num
 	pass;

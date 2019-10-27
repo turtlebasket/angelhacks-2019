@@ -1,2 +1,2 @@
-ATTACK: 10
+ATTACK: 5
 DESC: sword.
