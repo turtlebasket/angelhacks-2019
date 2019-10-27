@@ -1,8 +1,8 @@
 extends RichTextLabel
 var player
 var enemy
-const Player = preload("res://scripts/Enemy.gd")
-const Enemy = preload("res://scripts/Player.gd")
+const Player = preload("res://scripts/Player.gd")
+const Enemy = preload("res://scripts/Enemy.gd")
 const parser = preload("res://scripts/Parser.gd")
 
 func _ready():
@@ -60,8 +60,9 @@ func _on_InputBox_text_entered(cmd):
 		var objectProps = parser.parse(objectFile)
 		changeEnemyHp(-objectProps.get("ATTACK"))
 		changePlayerHp(objectProps.get("HEALTH"))
-	self.add_text("\nPlayer HP: " + player.getHp())
-	self.add_text("\nEnemy HP: " + enemy.getHp())
-	changePlayerHp(enemy.getAttack())
+	self.add_text("\nPlayer HP: " + str(player.getHp()))
+	self.add_text("\nEnemy HP: " + str(enemy.getHp()))
+	enemy.takeTurn()
+	pass
 		
 		

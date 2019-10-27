@@ -2,7 +2,7 @@ extends Node
 
 var WEIGHT_CAP = 10
 var HP_CAP = 20
-var hp
+var hp = 0
 var held_weight
 
 var regen
@@ -35,6 +35,7 @@ func setManager(man):
 	pass
 
 func changeHp(num):
+	num = int(num)
 	if num < 0:
 		num += armor
 		min (num, 0)
@@ -48,8 +49,8 @@ func loadFromFile(file_name):
 	var file = File.new()
 	file.open(file_name, File.READ)
 	var temp = parser.parse(file)
-	hp = temp.get("HEALTH")
-	print("Player hp: " + hp)
+	hp = int(temp.get("HEALTH"))
+	print("Player hp: " + str(hp))
 	pass
 
 #func applyEffects():
