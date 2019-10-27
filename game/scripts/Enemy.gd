@@ -1,6 +1,6 @@
 extends Node
 
-var hp
+var hp = 0
 var attack
 #var parser
 var manager 
@@ -27,6 +27,10 @@ func changeHp(num):
 	
 func getAttack():
 	return attack
+	
+func takeTurn():
+	manager.changePlayerHp(attack)
+	pass
 
 func getHp():
 	return hp
@@ -35,6 +39,6 @@ func loadFromFile(file_name):
 	var file = File.new()
 	file.open(file_name, File.READ)
 	var temp = parser.parse(file)
-	attack = temp.get("ATTACK")
-	hp = temp.get("HEALTH")
+	attack = int(temp.get("ATTACK"))
+	hp = int(temp.get("HEALTH"))
 	pass
