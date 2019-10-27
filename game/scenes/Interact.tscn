@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/fonts/geoai_20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/pixel-font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/InputBox.gd" type="Script" id=2]
 
 [sub_resource type="Theme" id=1]
@@ -33,15 +33,15 @@ func _on_InputBox_text_entered(new_text):
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1.0
-margin_right = 160.0
-margin_bottom = 120.0
+margin_right = 328.0
+margin_bottom = 223.0
 color = Color( 0.137255, 0.137255, 0.164706, 1 )
 
 [node name="InputBox" type="LineEdit" parent="ColorRect"]
-margin_left = 25.0
-margin_top = 99.0
-margin_right = 157.0
-margin_bottom = 119.0
+margin_left = 21.0
+margin_top = 150.0
+margin_right = 236.0
+margin_bottom = 172.0
 size_flags_horizontal = 5
 size_flags_stretch_ratio = 0.5
 custom_fonts/font = ExtResource( 1 )
@@ -51,18 +51,19 @@ script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 margin_left = 4.0
-margin_top = 5.0
-margin_right = 154.0
-margin_bottom = 84.0
+margin_top = 4.0
+margin_right = 225.0
+margin_bottom = 137.0
 theme = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 1 )
 scroll_following = true
 script = SubResource( 2 )
 
 [node name="CmdHead" type="RichTextLabel" parent="ColorRect"]
-margin_left = 9.34325
-margin_top = 96.0001
-margin_right = 41.1111
-margin_bottom = 121.0
+margin_left = 10.8247
+margin_top = 151.704
+margin_right = 42.5926
+margin_bottom = 176.703
 theme = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 text = ">"

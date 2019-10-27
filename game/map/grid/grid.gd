@@ -22,6 +22,9 @@ func request_move(pawn, direction):
 		OBJECT:
 			var object_pawn = get_cell_pawn(cell_target)
 			object_pawn.queue_free()
+			
+			get_tree().change_scene("res://scenes/Interact.tscn")
+			
 			return update_pawn_position(pawn, cell_start, cell_target)
 		ACTOR:
 			var pawn_name = get_cell_pawn(cell_target).name

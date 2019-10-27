@@ -15,6 +15,6 @@ func _ready():
 #	pass
 
 
-func _on_NewGameButton_pressed():
+func _on_pressed():
 	get_tree().change_scene("res://scenes/MapTrinity.tscn")
 	pass # Replace with function body.
