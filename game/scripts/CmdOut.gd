@@ -3,6 +3,7 @@ var player
 var enemy
 const Player = preload("res://scripts/Enemy.gd")
 const Enemy = preload("res://scripts/Player.gd")
+const parser = preload("res://scripts/Parser.gd")
 
 func _ready():
 	OS.execute("cd ./PlayerHome", [], true, [])
@@ -50,4 +51,17 @@ func _on_InputBox_text_entered(cmd):
 	
 	# custom commands
 	
-	# elif cmd[0] == "use":
+	elif cmd[0] == "use":
+		var object = cmd[1]
+		var objectFile = File.new()
+		var workingdir
+		OS.execute("pwd", [], true, workingdir)
+		objectFile.open(workingdir + object, File.READ)
+		var objectProps = parser.parse(objectFile)
+		changeEnemyHp(-objectProps.get("ATTACK"))
+		changePlayerHp(objectProps.get("HEALTH"))
+	self.add_text("\nPlayer HP: " + player.getHp())
+	self.add_text("\nEnemy HP: " + enemy.getHp())
+	changePlayerHp(enemy.getAttack())
+		
+		

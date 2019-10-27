@@ -41,6 +41,9 @@ func changeHp(num):
 	hp += num
 	pass;
 
+func getHp():
+	return hp
+
 func loadFromFile(file_name):
 	var file = File.new()
 	file.open(file_name, File.READ)
